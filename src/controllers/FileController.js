@@ -12,6 +12,6 @@ module.exports = {
     );
     let generatedText = services.generateText();
     fs.writeFileSync(uploadPath, generatedText);
-    res({ status: "uploaded"});
+    res.send({ status: "uploaded" });
   },
 };

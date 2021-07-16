@@ -1,4 +1,6 @@
-const FileController = require("../controllers/FileController");
-module.exports = (app) => {
-  app.get("api/generate", FileController.generateText);
+const { router } = require("../controllers/routers");
+module.exports = {
+  initRoutes(app) {
+    app.use("/api", router);
+  },
 };
