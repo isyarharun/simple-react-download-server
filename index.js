@@ -1,11 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const routes = require("./src/routes");
+const config = require("./config");
 const app = express();
-const port = 3000;
+
 app.use(cors());
 app.use(express.json());
 routes.initRoutes(app);
+
+const port = config.port;
 
 try {
   app.listen(port, () => {
