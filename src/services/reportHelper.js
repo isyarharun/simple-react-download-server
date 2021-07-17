@@ -13,10 +13,10 @@ module.exports = {
         integers.push(current);
       } else if (!isNaN(current)) {
         numbers.push(current);
-      } else if (isAlphaNumeric(current)) {
-        alphaNumerics.push(current);
-      } else {
+      } else if (isAlphabet(current)) {
         alphabets.push(current);
+      } else {
+        alphaNumerics.push(current);
       }
     }
     return {
@@ -34,13 +34,13 @@ function isInt(str) {
 
 // https://stackoverflow.com/questions/4434076/best-way-to-alphanumeric-check-in-javascript
 // answer no 2
-function isAlphaNumeric(str) {
+// with some modification
+function isAlphabet(str) {
   var code, i, len;
 
   for (i = 0, len = str.length; i < len; i++) {
     code = str.charCodeAt(i);
     if (
-      !(code > 47 && code < 58) && // numeric (0-9)
       !(code > 64 && code < 91) && // upper alpha (A-Z)
       !(code > 96 && code < 123)
     ) {
